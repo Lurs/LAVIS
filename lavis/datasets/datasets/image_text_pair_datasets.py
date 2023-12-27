@@ -37,8 +37,12 @@ class ImageTextPairDataset(BaseDataset, __DisplMixin):
 
         # TODO this assumes image input, not general enough
         ann = self.annotation[index]
+        if ann["dataset"] == "vg" or  ann["dataset"] == "vg2":
+            filelw = "VG_100K/" + os.path.basename(ann["image"])
+        else:
+            filelw = ann["image"]
 
-        image_path = os.path.join(self.vis_root, ann["image"])
+        image_path = os.path.join(self.vis_root, filelw)
         try:
             image = Image.open(image_path).convert("RGB")
         except:

@@ -46,7 +46,7 @@ run:
   max_epoch: 10
   batch_size_train: 100
   batch_size_eval: 64
-  num_workers: 4
+  num_workers: 0
   warmup_steps: 5000
 
   seed: 42
